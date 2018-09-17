@@ -199,11 +199,18 @@ server <- function(input, output) {
         }
       }
     } else {
-      file() %>% 
-        filter(focal_app_id == input$focal) %>% 
-        mutate(match = if_else(compare_app_id == input$block_rows_selected, 1, 0)) %>% 
-        write_csv(here("data", "Coded", input$file),
-                  append = F)
+      if(is.null(s)){
+        file() %>% 
+          filter(focal_app_id == input$focal) %>% 
+          write_csv(here("data", "Coded", input$file),
+                    append = F)
+      } else {
+        file() %>% 
+          filter(focal_app_id == input$focal) %>%
+          mutate(match = if_else(compare_app_id == s, 1, 0)) %>% 
+          write_csv(here("data", "Coded", input$file),
+                    append = F)
+      }
     }
   })
 # End of server function 
