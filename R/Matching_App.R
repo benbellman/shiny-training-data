@@ -25,13 +25,13 @@ names(uncoded) <- uncoded_files
 # Load Philly data for household rosters
 # Two filters: needed columns, and match the serial numbers in the training data
 #bind_rows(select(read.csv(here("data", "Phl10.csv"), stringsAsFactors = F), 
-#                                namefrst, namelast, age, sex, relate, bpl, year, serial),
+#                                namefrst, namelast, age, sex, relate, bpl, year, serial, pernum),
 #                         select(read.csv(here("data", "Phl20.csv"), stringsAsFactors = F), 
-#                                namefrst, namelast, age, sex, relate, bpl, year, serial),
+#                                namefrst, namelast, age, sex, relate, bpl, year, serial, pernum),
 #                         select(read.csv(here("data", "Phl30.csv"), stringsAsFactors = F), 
-#                                namefrst, namelast, age, sex, relate, bpl, year, serial),
+#                                namefrst, namelast, age, sex, relate, bpl, year, serial, pernum),
 #                         select(read.csv(here("data", "Phl40.csv"), stringsAsFactors = F), 
-#                                namefrst, namelast, age, sex, relate, bpl, year, serial)) %>% 
+#                                namefrst, namelast, age, sex, relate, bpl, year, serial, pernum)) %>% 
 #  filter(serial %in% all_serials) %>% 
 #  write_csv(here("data", "for_rosters.csv"))
 for_rosters <- read_csv(here("data", "for_rosters.csv"))
